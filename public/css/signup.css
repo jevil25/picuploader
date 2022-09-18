@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(86, 139, 209);
+}
+
+h1{
+    color:navy;
+    margin-bottom: 40px;
+}
+
+.fields{
+    border-radius: 10px;
+    padding:0px;
+    margin:5px;
+    
+}
+.main{
+    border: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px 460px;
+   
+}
+
+.signup{
+    margin:10px;
+}

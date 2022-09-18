@@ -1,0 +1,59 @@
+.heading{
+    color: white;
+    text-align: center;
+}
+
+.fields{
+    color:grey;
+    font-size: small;
+    text-align: left;
+    margin-left: 45px;
+}
+
+body{
+    text-align: center;
+    color: rgb(14, 14, 58);
+    font-size: larger;
+    background-color: rgb(14, 14, 58);
+}
+
+.fp{
+    font-size: small; 
+    border-radius: 20px;
+    border: 10p;
+}
+
+.su{
+    padding: 10px;
+    font-size: small;
+}
+
+.newfield{
+    margin-bottom: 0px;
+    color:grey;
+    font-size: small;
+}
+
+.button{
+    margin:20px
+}
+
+.input1{
+    padding: 8px;
+    border-radius: 10px;
+    margin: 0px 20px;
+    margin-bottom: 20px;
+}
+
+.input2{
+    padding: 8px;
+    border-radius: 10px;
+    margin: 0px 20px;
+}
+
+#logbg{
+    background-color: white;
+    padding:60px;
+    border-radius: 30px;
+    margin:0px 420px;
+}
