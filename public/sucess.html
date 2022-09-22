@@ -5,9 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/success.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <title>Logged In</title>
 </head>
 <body>
-    <h1>You are Logged in Successfully</h1>
+    <div class="head">
+        <h2 class="head1">Pic Saver</h2>
+    </div>
+    <div class="nav">
+        <div><form method="POST" action="/contact"><Button class="links">Contact</button></form></div>
+        <div><form method="POST" action="/pictures"><button class="links">My Pictures</button></form></div>
+    </div>
+    <div class="main">
+        <h2>Is your phone storage full don't worry?</h2>
+        <p>This website allows you save your pictures, download and use it as you like</p>
+    </div>
+    <div class="button">
+        <form method="POST" action="/upload">
+            <button class="btn btn-primary btn-lg px-5 py-3 mb-2 mt-2">Upload</button>
+        </form>
+    </div>
+     
+    <footer class="foot">
+        Designed and built by <b>Aaron Nazareth</b>
+    </footer>
+     
 </body>
 </html>
