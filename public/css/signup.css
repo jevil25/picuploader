@@ -1,26 +1,35 @@
 body{
-    background-color: rgb(86, 139, 209);
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(109,255,242,1) 50%, rgba(252,176,69,1) 100%);
 }
 
 h1{
-    color:navy;
-    margin-bottom: 40px;
+    color: white;
+    text-align: center;
 }
 
 .fields{
-    border-radius: 10px;
-    padding:0px;
-    margin:5px;
-    
+    border-radius: 5px;
+    padding:2px;
+    margin:5px;   
 }
 .main{
     border: 10px;
     background-color: white;
     border-radius: 10px;
     margin: 10px 460px;
-   
+    padding: 10px 0px ;
+    box-shadow:black;
 }
 
 .signup{
     margin:10px;
+}
+
+.foot{
+    font-size: medium;
+    color: rgb(72, 0, 255);
+    padding: 40px 15px;
+    text-align:center;
+    padding-top: 119px;
 }

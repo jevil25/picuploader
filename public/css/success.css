@@ -1,3 +1,90 @@
 body{
-    background-color: whitesmoke;
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(109,255,242,1) 50%, rgba(252,176,69,1) 100%);
 }
+
+.head1{
+    margin:10px 20px;
+    margin-bottom: 0px;
+    font-weight: bolder;
+    font-size: 45px;
+}
+
+
+.main h2{
+    font-size: 80px;
+    margin: 0px 20px;
+}
+
+.main p{
+    font-size: 35px;
+}
+
+.upload{
+    padding:100px;
+    margin-bottom: 40px;
+}
+
+p{
+    margin:25px;
+}
+
+.links{
+    margin:20px;
+    margin-top: 0px;
+    text-decoration: none;
+    color:rgb(30, 28, 28);
+    font-weight: bold;
+}
+
+.nav{
+   display: flex;
+   margin-top: 0px;
+   flex-direction: row-reverse;
+   margin-right: 45px;
+}
+
+.nav .links{
+    font-size: x-large;
+    background-color: transparent;
+    border-top-color: white;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-right-color: white;
+    border-right-style: solid;
+    border-right-width: 2px;
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-left-color: white;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    padding:5px;
+    border-radius: 20px;
+}
+
+.foot{
+    font-size: medium;
+    color: rgb(72, 0, 255);
+    padding: 0px 15px;
+    text-align: center;
+    position: relative;
+    padding-top: 40px;
+}
+
+button{
+    position: relative;
+    left: 39%;
+}
+
+.button button{
+    font-size: 40px;
+    text-transform: uppercase;
+    border-radius: 50px;
+}
+
