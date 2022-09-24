@@ -87,6 +87,10 @@ app.post("/signup",function(req,res){
     res.sendFile(path+"/signup.html");
 })
 
+app.post("/contact",function(req,res){
+    res.sendFile(path+"/contact.html");
+});
+
 //signup data sent to db
 app.post("/senddata",async function(req,res){
     try{

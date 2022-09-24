@@ -2,3 +2,24 @@ h1{
     margin: 50px;
     text-align: center;
 }
+
+body{
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(109,255,242,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+.main{
+    font-size: xx-large;
+
+}
+
+.fields{
+    padding: 10px 15px;
+    background: transparent;
+    border:transparent;
+    border-bottom: 3px solid rgb(39, 33, 33);
+}
+
+.button{
+    padding:0px 20px
+}

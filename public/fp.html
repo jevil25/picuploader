@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="css/fp.css">
     <title>Forgot password</title>
 </head>
 <body>
     <h1>Recover password</h1>
-    <form action="/check" method="POST" align="center">
-        Enter email: <input type="email" required placeholder="xyz@gmail.com" name="email">
-        <button class="btn btn-primary">Submit</button>
-    </form>
+    <div class="main">
+        <form action="/check" method="POST" align="center">
+            Enter email: <input type="email" required placeholder="xyz@gmail.com" name="email" class="fields">
+            <button class="button btn btn-primary" onclick="check">Submit</button>
+        </form>
+    </div>
+    <script src="js/fp.js"></script>
 </body>
 </html>

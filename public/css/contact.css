@@ -1,0 +1,73 @@
+body{
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(109,255,242,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+h1{
+    font-weight: bolder;
+    font-size: 50px;
+    margin:10px;
+}
+
+.main{
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px 0px ;
+}
+
+.foot{
+    font-size: medium;
+    color: rgb(72, 0, 255);
+    padding: 0px 15px;
+    margin-top: 380px;
+    text-align:center;
+    padding-top: 119px;
+}
+
+.text{
+    margin: 15px;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.fields{
+    padding: 5px 20px;
+    background: transparent;
+    border: transparent;
+    border-bottom: 3px solid rgb(46, 38, 38);
+}
+
+.submit{
+    margin-left: 10px;
+    padding: 5px 100px;
+}
+
+.fields:hover{
+    background-color: white;
+    padding-top: 20px;
+    border: transparent;
+}
+
+.message{
+    padding:50px;
+    background: transparent;
+    border:transparent;
+    border-bottom: 3px solid rgb(46, 38, 38);
+}
+
+.message:hover{
+    background-color: white;
+}
+
+.send{
+    padding:10px 100px;
+    margin-top: 10px;
+}

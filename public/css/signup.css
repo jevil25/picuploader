@@ -12,24 +12,28 @@ h1{
     border-radius: 5px;
     padding:2px;
     margin:5px;   
+    text-align: left;
 }
 .main{
     border: 10px;
     background-color: white;
-    border-radius: 10px;
-    margin: 10px 460px;
-    padding: 10px 0px ;
+    border-radius: 20px;
+    margin: 10px 430px;
+    padding: 50px 30px ;
     box-shadow:black;
 }
 
 .signup{
     margin:10px;
+    padding:10px 100px;
 }
 
 .foot{
     font-size: medium;
     color: rgb(72, 0, 255);
     padding: 40px 15px;
+    margin-bottom: 20px ;
     text-align:center;
-    padding-top: 119px;
+    padding-top: px;
+    margin-top: 30px;
 }

@@ -28,12 +28,20 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(109,255,242,1) 50
 .fp{
     font-size: small; 
     border-radius: 20px;
-    border: 10p;
+    border: transparent;
+    color:grey;
+    font-size: small;
 }
 
-.su{
-    padding: 10px;
-    font-size: small;
+.fp:hover{
+    color: red;
+}
+
+.button{
+    padding: 10px 100px;
+    border-radius: 10px;
+    margin:5px;
+    font-size: medium;
 }
 
 .newfield{
@@ -43,7 +51,17 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(109,255,242,1) 50
 }
 
 .button{
-    margin: 20px 0px 0px 0px;
+    padding: 7px 100px;
+    border-radius: 10px;
+    margin:5px;
+    font-size: medium;
+}
+
+.su{
+    padding: 7px 97px;
+    border-radius: 10px;
+    margin:5px;
+    font-size: medium;
 }
 
 .input1{
@@ -61,7 +79,7 @@ background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(109,255,242,1) 50
 
 #logbg{
     background-color: white;
-    padding:60px;
+    padding:30px 51px;
     border-radius: 30px;
     margin:0px 420px;
 }
