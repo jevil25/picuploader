@@ -67,6 +67,7 @@ app.post("/send",async function(req,res){
     try{
         const email=req.body.email;
         const password=req.body.password;
+        console.log(password);
         const useremail=await Register.findOne({email:email});
         const verify=await bcrypt.compare(password,useremail.password);
         if(verify){

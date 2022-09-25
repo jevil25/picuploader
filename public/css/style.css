@@ -1,6 +1,6 @@
-.heading{
-    color: white;
-    text-align: center;
+.main_heading{
+color:blanchedalmond;
+text-align: left;
 }
 
 .fields{
@@ -12,8 +12,11 @@
 
 body{
     text-align: center;
-    color: rgb(14, 14, 58);
+    color: blanchedalmond;
     font-size: larger;
+    background-image:url(/images/bg5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .foot{
@@ -49,35 +52,37 @@ body{
 }
 
 .button{
-    padding: 7px 100px;
-    border-radius: 10px;
-    margin:5px;
-    font-size: medium;
+    margin: 20px 0px;
+    border-radius: 30px;
+    background-color: rgb(203, 57, 57);
+    padding:10px 160px;
+    font-size:x-large;
 }
 
-.su{
-    padding: 7px 97px;
-    border-radius: 10px;
-    margin:5px;
-    font-size: medium;
+html.fa-events-icons-loading body {
+    display: none;
 }
 
 .input1{
-    padding: 8px;
-    border-radius: 10px;
-    margin: 0px 20px;
-    margin-bottom: 20px;
-}
-
-.input2{
-    padding: 8px;
-    border-radius: 10px;
-    margin: 0px 20px;
+    background-color: #000;
+    color: #fff;
+    opacity: .3;
+    margin: 20px 0px;
+    border-radius: 30px;
+    text-transform: none;
+    font-family: fontawesome;
+    font-style: normal;
+    text-decoration: inherit;
+    text-transform: revert;
 }
 
 #logbg{
-    background-color: white;
-    padding:30px 51px;
-    border-radius: 30px;
-    margin:0px 420px;
+    background:transparent;
+    position:static;
+    top:50%;
+    left:50%;
+    font-size: xx-large;
 }
+  .input1::placeholder {
+    color: rgb(218, 211, 211);
+  }
