@@ -18,3 +18,9 @@ h1{
 .button{
     padding:0px 20px
 }
+
+body{
+    background-image:url(/images/bg1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
