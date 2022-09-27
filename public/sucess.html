@@ -20,15 +20,20 @@
         <h2>Is your phone storage full? don't worry</h2>
         <p>This website allows you save your pictures, download and use it as you like</p>
     </div>
-    <div class="button">
-        <form method="POST" action="/upload">
-            <button class="btn btn-primary btn-lg px-5 py-3 mb-2 mt-2">Upload</button>
+    <div class="row justify-content-center">
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+            <div class="col-8">
+            <input type="file" class="form-control" name="images" reqiuired multiple>
+            </div>
+            <div class="col-2">
+                <input type="submit" class="btn btn-warning" vaule="upload-images">
+            </div>
         </form>
     </div>
-     
+   
     <footer class="foot">
         Designed and built by <b>Aaron Nazareth</b>
     </footer>
-     
+    <script src="js/sucess.js"></script>
 </body>
 </html>

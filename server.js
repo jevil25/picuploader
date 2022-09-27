@@ -3,6 +3,8 @@ const express = require("express"); //interact with html file
 const bodyParser=require("body-parser"); //to get data from user
 const mongoose=require("mongoose"); //package to connect to db
 const bcrypt=require("bcryptjs");//package to hash the password (one way)
+const multer = require('multer');
+
 mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net/test",{
     useNewUrlParser:true,
     useUnifiedTopology:true,
@@ -40,6 +42,15 @@ const regSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    filename:{
+        type:String,
+    },
+    contentType:{
+        type:String,
+    },
+    imageBased64:{
+        type:String,
     }
 });
 
@@ -67,7 +78,6 @@ app.post("/send",async function(req,res){
     try{
         const email=req.body.email;
         const password=req.body.password;
-        console.log(password);
         const useremail=await Register.findOne({email:email});
         const verify=await bcrypt.compare(password,useremail.password);
         if(verify){
@@ -130,3 +140,23 @@ app.post("/check", async function(req,res){
 app.listen(3000,function(){
     console.log("server is live on 3000")
 });
+
+//set storage
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+})
+var upload = multer({ storage: storage })
+
+app.use('/uploads',express.static('uploads'));
+app.post('/upload', upload.array('images', 12), function (req, res, next) {
+    // req.files is array of `profile-files` files
+    // req.body will contain the text fields, if there were any
+    var response = '<a href="/pictures">View pics</a><br>'
+    response += "Files uploaded successfully.<br>"
+    return res.send(response)
+})

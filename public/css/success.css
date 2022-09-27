@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 .head1{
     margin:10px 20px;
@@ -11,6 +12,15 @@ body{
     background-image:url(/images/bg1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.font-poppins{
+    font-family: 'Poppins',sans-serif;
+}
+
+.img-size{
+    width: 50px;
+    height: 50px;
 }
 
 .main h2{
