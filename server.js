@@ -4,6 +4,8 @@ const bodyParser=require("body-parser"); //to get data from user
 const mongoose=require("mongoose"); //package to connect to db
 const bcrypt=require("bcryptjs");//package to hash the password (one way)
 const multer = require('multer');
+const fs=require("fs");
+let global_id;
 
 mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net/test",{
     useNewUrlParser:true,
@@ -19,11 +21,11 @@ const { response } = require("express");
 const regSchema=new mongoose.Schema({
     firstname:{
         type:String,
-        required:true,
+        required:true
     },
     lastname:{
         type:String,
-        required:true,
+        required:true
     },
     email:{
         type:String,
@@ -44,13 +46,13 @@ const regSchema=new mongoose.Schema({
         required:true
     },
     filename:{
-        type:String,
+        type:String
     },
     contentType:{
-        type:String,
+        type:String
     },
     imageBased64:{
-        type:String,
+        type:String
     }
 });
 
@@ -81,6 +83,7 @@ app.post("/send",async function(req,res){
         const useremail=await Register.findOne({email:email});
         const verify=await bcrypt.compare(password,useremail.password);
         if(verify){
+            global_id=email;
             res.status(201).sendFile(path+"/sucess.html");
         }else{
             res.send("invalid email or password")
@@ -100,8 +103,7 @@ app.post("/signup",function(req,res){
 
 app.post("/contact",function(req,res){
     res.sendFile(path+"/contact.html");
-});
-
+})
 //signup data sent to db
 app.post("/senddata",async function(req,res){
     try{
@@ -124,7 +126,6 @@ app.post("/senddata",async function(req,res){
     }catch(e){
         res.status(400).send(e);
     }
-    res.sendFile(path+"/index.html");
 })
 
 app.post("/check", async function(req,res){
@@ -141,7 +142,7 @@ app.listen(3000,function(){
     console.log("server is live on 3000")
 });
 
-//set storage
+//set local storage
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './uploads')
@@ -150,13 +151,36 @@ var storage = multer.diskStorage({
       cb(null, file.originalname)
     }
 })
-var upload = multer({ storage: storage })
+ var upload = multer({ storage: storage })
 
+//set database storage
 app.use('/uploads',express.static('uploads'));
-app.post('/upload', upload.array('images', 12), function (req, res, next) {
+app.post('/upload', upload.array('images', 10000), function (req, res, next) {
     // req.files is array of `profile-files` files
     // req.body will contain the text fields, if there were any
     var response = '<a href="/pictures">View pics</a><br>'
     response += "Files uploaded successfully.<br>"
-    return res.send(response)
-})
+    //convert image to base64 encoding
+    const files=req.files;
+    let imgArray = files.map((file)=>{
+        let img=fs.readFileSync(file.path);
+        return enocodedimage=img.toString('base64');
+    })
+
+    imgArray.map(async function(src,index){
+        //sending data to db
+        let finalimg={
+            $set:{
+            filename:files[index].originalname,
+            contentType:files[index].mimetype,
+            imageBase64:src
+            }
+        }
+        const useremail=await Register.findOne({email:global_id})
+        let filter={ email:useremail.email }
+        const options = { upsert: true };
+        let result = await Register.updateOne(filter, finalimg, options);
+        return result
+        })
+        return res.redirect('/pictures')
+    })

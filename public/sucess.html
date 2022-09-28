@@ -22,11 +22,15 @@
     </div>
     <div class="row justify-content-center">
         <form method="POST" action="/upload" enctype="multipart/form-data">
-            <div class="col-8">
-            <input type="file" class="form-control" name="images" reqiuired multiple>
+            <div class="main-uploader">
+                <div class="col-4">
+                <input type="file" class="form-control" name="images" reqiuired multiple>
+                </div>
+                <div class="submit-button">
+                <div class="col-2">
+                    <input type="submit" class="btn btn-warning" vaule="upload-images">
+                </div>
             </div>
-            <div class="col-2">
-                <input type="submit" class="btn btn-warning" vaule="upload-images">
             </div>
         </form>
     </div>
