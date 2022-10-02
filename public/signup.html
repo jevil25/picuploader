@@ -10,18 +10,18 @@
 </head>
 <body>
     <h1>Signup</h1>
-    <div class="main" align="center">
+    <div class="main">
         <form action="/senddata" method="POST">
-            Enter First Name*: <input name="firstname" type="text" placeholder="First Name" class="fields" required><br>
-            Enter Last Name: <input name="lastname" type="text" placeholder="Last Name" class="fields"><br>
-            Enter email*: <input name="email" type="email" placeholder="xyz@gmail.com" class="fields" required><br>
-            Enter Number*: <input name="number" type="text" placeholder="1234567890" class="fields" required><br>
+            <div class="text">Enter First Name*: <input name="firstname" type="text" placeholder="First Name" class="fields" required></div><br>
+            <div class="text">Enter Last Name: <input name="lastname" type="text" placeholder="Last Name" class="fields"></div><br>
+            <div class="text">Enter email*: <input name="email" type="email" placeholder="xyz@gmail.com" class="fields" required></div><br>
+            <div class="text">Enter Number*: <input name="number" type="text" placeholder="1234567890" class="fields" required></div><br>
             <fieldset>
-            Enter gender*: <input type="radio" value="Male" class="fields" name="gender" required>Male  <input type="radio" name="gender" class="fields" value="Female" required>Female
+            <div class="text">Enter gender*: <input type="radio" value="Male" class="fields" name="gender" required>Male  <input type="radio" name="gender" class="fields" value="Female" required>Female</div>
             </fieldset>
-            Create password*: <input name="password" type="password" placeholder="password" class="fields" required><br>
-            Repeat password*: <input name="confirmpassword" type="password" placeholder="password" class="fields" required><br>
-            <button class="btn btn-primary signup">Signup</button>
+            <div class="text">Create password*: <input name="password" type="password" placeholder="password" class="fields" required></div><br>
+            <div class="text">Repeat password*: <input name="confirmpassword" type="password" placeholder="password" class="fields" required></div><br>
+            <div class="text"><button class="btn btn-primary signup">Signup</button></div>
         </form>
     </div>
     <footer class="foot">

@@ -3,8 +3,8 @@ const express = require("express"); //interact with html file
 const bodyParser=require("body-parser"); //to get data from user
 const mongoose=require("mongoose"); //package to connect to db
 const bcrypt=require("bcryptjs");//package to hash the password (one way)
-const multer = require('multer');
-const fs=require("fs");
+const multer = require('multer');//package to upload and fetch images
+const fs=require("fs");//package to read files given by the user
 let global_id;
 
 mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net/test",{
@@ -73,7 +73,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(express.json());
 
 app.get("/",function(req,res){
-    res.sendFile(path+"/index.html");
+    res.render(path+"/index.html");
 });
 
 app.post("/send",async function(req,res){
@@ -152,18 +152,18 @@ var storage = multer.diskStorage({
     }
 })
  var upload = multer({ storage: storage })
-
+ let img;
 //set database storage
 app.use('/uploads',express.static('uploads'));
-app.post('/upload', upload.array('images', 10000), function (req, res, next) {
+app.post('/upload', upload.array('images', 1000), function (req, res, next) {
     // req.files is array of `profile-files` files
     // req.body will contain the text fields, if there were any
-    var response = '<a href="/pictures">View pics</a><br>'
-    response += "Files uploaded successfully.<br>"
+    //var response = '<a href="/pictures">View pics</a><br>'
+    //response += "Files uploaded successfully.<br>"
     //convert image to base64 encoding
     const files=req.files;
     let imgArray = files.map((file)=>{
-        let img=fs.readFileSync(file.path);
+        img=fs.readFileSync(file.path);
         return enocodedimage=img.toString('base64');
     })
 
@@ -173,14 +173,21 @@ app.post('/upload', upload.array('images', 10000), function (req, res, next) {
             $set:{
             filename:files[index].originalname,
             contentType:files[index].mimetype,
-            imageBase64:src
+            imageBased64:src
             }
         }
-        const useremail=await Register.findOne({email:global_id})
-        let filter={ email:useremail.email }
+        const useremail=await Register.findOne({email:global_id});
+        let filter={ email:useremail.email };
         const options = { upsert: true };
         let result = await Register.updateOne(filter, finalimg, options);
         return result
         })
-        return res.redirect('/pictures')
+        return app.post('/pictures', async(req,res)=>{
+            const useremail=await Register.findOne({email:global_id});
+        })
+    })
+
+    app.post('/pictures',async (req,res)=>{
+        const useremail=await Register.findOne({email:global_id});
+        res.render(path+"/pictures.pug",{srcimg:"hii"});
     })

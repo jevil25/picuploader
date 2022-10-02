@@ -9,26 +9,29 @@ h1{
     text-align: center;
 }
 
-.fields{
-    border-radius: 5px;
-    padding:2px;
-    margin:5px;  
+.text{
     text-align: center;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+    margin:10px;
 }
+
 .main{
-    text-align: center;
-    margin-right: 50px; 
-    color:white;
-    border: 10px;
-    border-radius: 20px;
-    padding: 50px 30px ;
-    box-shadow:black;
-    display:flex;
-    align-items: center;
-    justify-content: center;
+   color:white;
+   text-align: left;
+}
+
+.fields{
+    background: transparent;
+    border:transparent;
+    border-bottom: 1px solid black;
+    margin-left: 10px;
+}
+
+.fields:hover{
+    background: white;
+}
+
+.fields:active{
+    background:white;
 }
 
 .signup{
