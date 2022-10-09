@@ -5,6 +5,7 @@ const mongoose=require("mongoose"); //package to connect to db
 const bcrypt=require("bcryptjs");//package to hash the password (one way)
 const multer = require('multer');//package to upload and fetch images
 const fs=require("fs");//package to read files given by the user
+const hbs=require("express-handlebars");
 let global_id;
 
 mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net/test",{
@@ -19,6 +20,12 @@ mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net
 const { response } = require("express");
 //db declaration
 const regSchema=new mongoose.Schema({
+    contentType:{
+        type:String
+    },
+    imageBased64:{
+        type:String
+    },
     firstname:{
         type:String,
         required:true
@@ -46,12 +53,6 @@ const regSchema=new mongoose.Schema({
         required:true
     },
     filename:{
-        type:String
-    },
-    contentType:{
-        type:String
-    },
-    imageBased64:{
         type:String
     }
 });
@@ -148,46 +149,46 @@ var storage = multer.diskStorage({
       cb(null, './uploads')
     },
     filename: function (req, file, cb) {
-      cb(null, file.originalname)
+      cb(null, file.fieldname)
     }
 })
  var upload = multer({ storage: storage })
  let img;
 //set database storage
 app.use('/uploads',express.static('uploads'));
-app.post('/upload', upload.array('images', 1000), function (req, res, next) {
+app.post('/upload', upload.array("images",1000),async function (req, res, next) {
     // req.files is array of `profile-files` files
     // req.body will contain the text fields, if there were any
     //var response = '<a href="/pictures">View pics</a><br>'
     //response += "Files uploaded successfully.<br>"
     //convert image to base64 encoding
-    const files=req.files;
+    const files= req.files;
     let imgArray = files.map((file)=>{
         img=fs.readFileSync(file.path);
-        return enocodedimage=img.toString('base64');
+        return img.toString('base64');
     })
 
     imgArray.map(async function(src,index){
         //sending data to db
         let finalimg={
-            $set:{
             filename:files[index].originalname,
             contentType:files[index].mimetype,
             imageBased64:src
-            }
         }
         const useremail=await Register.findOne({email:global_id});
         let filter={ email:useremail.email };
         const options = { upsert: true };
-        let result = await Register.updateOne(filter, finalimg, options);
+        let result = await Register.updateOne(filter, finalimg);
         return result
         })
-        return app.post('/pictures', async(req,res)=>{
-            const useremail=await Register.findOne({email:global_id});
-        })
+        app.set('view engine', 'hbs')
+        const useremail=await Register.findOne({email:global_id});
+        return res.render(path+"/pictures.hbs",{images:useremail});
     })
+
+    app.set('view engine', 'hbs')
 
     app.post('/pictures',async (req,res)=>{
         const useremail=await Register.findOne({email:global_id});
-        res.render(path+"/pictures.pug",{srcimg:"hii"});
+        return res.render(path+"/pictures.hbs",{images:useremail});
     })
