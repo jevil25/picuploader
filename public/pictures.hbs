@@ -12,7 +12,6 @@
 <section class="mt-5">
     <div class="row">
         {{#each images}}
-            {{#each this}}
                 {{#if imageBased64}}
                     <div class="col-3">
                         <div class="card shadow" style="width: 18rem;">
@@ -25,7 +24,6 @@
                         </div>
                     </div>
                 {{/if}}
-            {{/each}}
         {{/each}}
     </div>     
 </section>
