@@ -5,8 +5,8 @@ const mongoose=require("mongoose"); //package to connect to db
 const bcrypt=require("bcryptjs");//package to hash the password (one way)
 const multer = require('multer');//package to upload and fetch images
 const fs=require("fs");//package to read files given by the user
-const hbs=require("express-handlebars");
-let global_id;
+const hbs=require("express-handlebars");//used for hbs file soo as to use js componenets for displaying images
+let global_id;//used to store id to retrieve images
 
 mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net/test",{
     useNewUrlParser:true,
@@ -50,20 +50,16 @@ const regSchema=new mongoose.Schema({
 
 const imageSchema=new mongoose.Schema({
     filename:{
-        type:String,
-        required:true
+        type:String
     },
     imageBased64:{
-        type:String,
-        required:true
+        type:String
     },
     contentType:{
-        type:String,
-        required:true
+        type:String
     },
     email:{
-        type:String,
-        required:true
+        type:String
     }
 })
 
@@ -177,16 +173,16 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
     //response += "Files uploaded successfully.<br>"
     //convert image to base64 encoding
     let files= req.files;
-    let imgArray = files.map(async (file)=>{
+    let imgArray = files.map((file)=>{
         img=fs.readFileSync(file.path);
-        return await img.toString('base64');
+        return img.toString('base64');
     })
     imgArray.map(async (src,index)=>{
         //sending data to db
         let finalimg=new images({
             filename:files[index].originalname,
             contentType:files[index].mimetype,
-            imageBased64:array[index],
+            imageBased64:src,
             email:global_id
         });
         let result=new images(finalimg);
@@ -201,6 +197,5 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
 
     app.post('/pictures',async (req,res)=>{
         const useremail=await images.find({email:global_id});
-        console.log(useremail);
         return res.render(path+"/pictures.hbs",{images:useremail});
     })
