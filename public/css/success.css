@@ -47,6 +47,7 @@ body{
     margin-bottom: 40px;
 }
 
+
 p{
     margin:25px;
 }
@@ -88,6 +89,12 @@ p{
     border-image-repeat: initial;
     padding:5px;
     border-radius: 20px;
+}
+
+.log{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 0px;
 }
 
 .foot{

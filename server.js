@@ -71,7 +71,7 @@ regSchema.pre("save",async function(next){
 const Register = new mongoose.model("Project1", regSchema);
 const images=new mongoose.model("pics",imageSchema);
 
-module.exports={Register,images};
+module.exports={Register,images}; //sends data to database
 
 
 const app=express();
@@ -81,8 +81,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(express.json());
 
-app.get("/",function(req,res){
-    res.render(path+"/index.html");
+app.post("/index",function(req,res){
+    res.sendFile(path+"/index.html");
+    global_id=null;
 });
 
 app.post("/send",async function(req,res){
@@ -101,6 +102,8 @@ app.post("/send",async function(req,res){
         res.status(400).send("invalid email or password");
     }
 });
+
+//these routes for user interaction
 
 app.post("/forpass",function(req,res){
     res.sendFile(path+"/fp.html");
@@ -137,7 +140,7 @@ app.post("/senddata",async function(req,res){
     }
 })
 
-app.post("/check", async function(req,res){
+app.post("/check", async function(req,res){   //this is used to check if credentials are proper
     try{
         const email=req.body.email;
         const username=await Register.findOne({email:email});
@@ -176,19 +179,22 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
     let files= req.files;
     let imgArray = files.map((file)=>{
         img=fs.readFileSync(file.path);
-        return img.toString('base64');
+        return img.toString('base64');  //image encoded to base64
     })
     imgArray.map(async (src,index)=>{
         //sending data to db
-        let finalimg=new images({
+        let finalimg=new images({        //schema to send image to database
             filename:files[index].originalname,
             contentType:files[index].mimetype,
             imageBased64:src,
             email:global_id
         });
         let result=new images(finalimg);
-        return result.save();
+        return result.save().then(()=>{         //then is used to wait till all pics get uploaded
+            console.log("Uploaded Sucessfully")
+        });
         })
+        
         app.set('view engine', 'hbs') //view engine for handlebars page
         const useremail=await images.find({email:global_id}); //finds all the images of logged in user
         return res.render(path+"/pictures.hbs",{images:useremail}); //sends details to hbs file

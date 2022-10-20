@@ -24,3 +24,12 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.foot{
+    font-size: medium;
+    color:white;
+    padding: 0px 15px;
+    text-align: center;
+    position: relative;
+    padding-top: 40px;
+}
