@@ -166,6 +166,7 @@ var storage = multer.diskStorage({
  var array=[];
 //set database storage
 app.use('/uploads',express.static('uploads'));
+//used to upload pics to db
 app.post('/upload', upload.array("images",100),async function (req, res, next) {
     // req.files is array of `profile-files` files
     // req.body will contain the text fields, if there were any
@@ -188,14 +189,14 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
         let result=new images(finalimg);
         return result.save();
         })
-        app.set('view engine', 'hbs')
-        const useremail=await images.find({email:global_id});
-        return res.render(path+"/pictures.hbs",{images:useremail});
+        app.set('view engine', 'hbs') //view engine for handlebars page
+        const useremail=await images.find({email:global_id}); //finds all the images of logged in user
+        return res.render(path+"/pictures.hbs",{images:useremail}); //sends details to hbs file
     })
 
-    app.set('view engine', 'hbs')
+    app.set('view engine', 'hbs') //view engine for handlebars page
 
-    app.post('/pictures',async (req,res)=>{
-        const useremail=await images.find({email:global_id});
-        return res.render(path+"/pictures.hbs",{images:useremail});
+    app.post('/pictures',async (req,res)=>{  //used when my pictures is clicked
+        const useremail=await images.find({email:global_id});  //finds all the images of logged in user
+        return res.render(path+"/pictures.hbs",{images:useremail});  //sends details to hbs file
     })
