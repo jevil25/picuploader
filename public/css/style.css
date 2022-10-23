@@ -84,11 +84,6 @@ html.fa-events-icons-loading body {
     text-transform: revert;
 }
 
-.headbutton{
-    display: inline-block;
-    margin-left:970px;
-}
-
 .signup{
     margin-right: 30px;
     color:white;
@@ -101,6 +96,11 @@ html.fa-events-icons-loading body {
     background: #fff;
     color:black;
     border:2px solid black;
+}
+
+.headbutton{
+    display: inline-flex;
+    margin-left:950px;
 }
 
 #logbg{
