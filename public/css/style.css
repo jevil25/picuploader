@@ -84,10 +84,13 @@ html.fa-events-icons-loading body {
     text-transform: revert;
 }
 
+.headbutton{
+    display: inline-block;
+    margin-left:970px;
+}
+
 .signup{
-    display: block;
     margin-right: 30px;
-    margin-left: auto;
     color:white;
     border:2px solid white;
     border-radius: 20px;
