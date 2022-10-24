@@ -1,8 +1,18 @@
-
+.main_heading{
+    color:white;
+    text-align: left;
+    }    
 
 h1{
     font-weight: bolder;
     font-size: 50px;
+    margin:10px;
+    color: white;
+}
+
+.contact{
+    font-weight: bolder;
+    font-size: 40px;
     margin:10px;
     color: white;
 }
@@ -19,6 +29,7 @@ h1{
   z-index: 2;
   width: 80%;
   padding: 20px 0px ;
+  margin-top: 80px;
 }
 
 .foot{

@@ -4,19 +4,27 @@ body{
     background-size: cover;
 }
 
+.main_heading{
+    color:white;
+    text-align: left;
+    }
+    
+
 h1{
     color: white;
     text-align: center;
 }
 
 .text{
-    text-align: center;
+    text-align: left;
     margin:10px;
 }
 
 .main{
    color:white;
-   text-align: left;
+   text-align: center;
+   margin-left: 475px;
+   
 }
 
 .fields{
