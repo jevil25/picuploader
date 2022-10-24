@@ -7,6 +7,7 @@ const multer = require('multer');//package to upload and fetch images
 const fs=require("fs");//package to read files given by the user
 const hbs=require("express-handlebars");//used for hbs file soo as to use js componenets for displaying images
 let global_id;//used to store id to retrieve images
+const {execSync} = require('child_process');//used to cause delays and sleeps
 
 mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net/test",{
     useNewUrlParser:true,
@@ -45,6 +46,10 @@ const regSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    recoveryCode:{
+        type:String,
+        required:true
     }
 });
 
@@ -65,6 +70,7 @@ const imageSchema=new mongoose.Schema({
 
 regSchema.pre("save",async function(next){
     this.password= await bcrypt.hash(this.password,10);
+    this.recoveryCode= await bcrypt.hash(this.recoveryCode, 10);
     next();
 });
 
@@ -128,7 +134,8 @@ app.post("/senddata",async function(req,res){
                 email:req.body.email,
                 number:req.body.number,
                 gender:req.body.gender,
-                password:password
+                password:password,
+                recoveryCode:req.body.recoveryCode
             })
             const registered=await register1.save();
             res.status(201).sendFile(path+"/index.html");
@@ -140,11 +147,43 @@ app.post("/senddata",async function(req,res){
     }
 })
 
-app.post("/check", async function(req,res){   //this is used to check if credentials are proper
+app.post("/reset", async function(req,res){// used to reset the password
+    try{
+        const password=req.body.password;
+        const confirmpassword=req.body.confirmpassword;
+        if(password===confirmpassword){
+        const newpassword=await bcrypt.hash(password,10)
+        try{
+        await Register.updateOne({email:global_id},{
+            $set:{
+                password:newpassword                 //password field gets updated in db
+            }
+        });
+        }catch(err){
+            console.log("upadating error")
+        }
+        res.status(201).sendFile(path+"/sucess.html");
+        }else{
+            res.send("passwords are not same");
+        }
+    }catch(error){
+        res.status(400).send(error);
+        console.log(error);
+    }
+});
+
+app.post("/check", async function(req,res){   //this is used to check if credentials are proper to change password
     try{
         const email=req.body.email;
+        const recoveryCode=req.body.recoveryCode;
         const username=await Register.findOne({email:email});
-        res.send("Your password is "+username.password);
+        const verify=await bcrypt.compare(recoveryCode,username.recoveryCode);
+        if(verify){
+            global_id=email;
+            res.status(201).sendFile(path+"/reset.html");
+        }else{
+            res.send("invalid email or recovery code")
+        }
     }catch(e){
         res.send("No such email exists");
     }
@@ -194,10 +233,6 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
             console.log("Uploaded Sucessfully")
         });
         })
-        
-        app.set('view engine', 'hbs') //view engine for handlebars page
-        const useremail=await images.find({email:global_id}); //finds all the images of logged in user
-        return res.render(path+"/pictures.hbs",{images:useremail}); //sends details to hbs file
     })
 
     app.set('view engine', 'hbs') //view engine for handlebars page

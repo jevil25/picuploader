@@ -42,9 +42,10 @@ body{
     color: white;
 }
 
-.upload{
-    padding:100px;
-    margin-bottom: 40px;
+#upload{
+    visibility: hidden;
+    color: rgb(69, 163, 69);
+    margin-left: 50px;
 }
 
 

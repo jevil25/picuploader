@@ -1,5 +1,5 @@
-const press=document.getElementsByClassName("upload");
+document.getElementById("pressed").addEventListener("click",displaymsg);
 
-function press(){
-    press.style.visibility("visible");
+function displaymsg(){
+    document.getElementById("upload").style.visibility = "visible";
 }

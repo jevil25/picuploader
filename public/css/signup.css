@@ -8,7 +8,11 @@ body{
     color:white;
     text-align: left;
     }
-    
+
+.note{
+    text-justify: auto;
+    text-align: center;
+}
 
 h1{
     color: white;
