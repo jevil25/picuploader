@@ -6,8 +6,11 @@ const bcrypt=require("bcryptjs");//package to hash the password (one way)
 const multer = require('multer');//package to upload and fetch images
 const fs=require("fs");//package to read files given by the user
 const hbs=require("express-handlebars");//used for hbs file soo as to use js componenets for displaying images
-let global_id;//used to store id to retrieve images
+// let global_id;//used to store id to retrieve images
 const {execSync} = require('child_process');//used to cause delays and sleeps
+const cookieParser = require("cookie-parser");//used to store cookies for user sessions
+const sessions = require('express-session');//used to create sessions
+const oneDay = 1000 * 60 * 60 * 24;//1 day time for new sessions
 
 mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net/test",{
     useNewUrlParser:true,
@@ -79,17 +82,40 @@ const images=new mongoose.model("pics",imageSchema);
 
 module.exports={Register,images}; //sends data to database
 
-
 const app=express();
 app.use(express.static(__dirname + '/public'));
-const path=__dirname + '/public';
+app.use(cookieParser());
+const path=__dirname + '/public/views';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(express.json());
+app.use(express.json());
+
+app.use(sessions({ //this the data sent and stored in brower cookie
+    secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
+
+var session;
+app.get('/',function(req,res){ //used to identify user sessions
+    session=req.session;
+    if(session.userid){
+        res.sendFile(path+"/sucess.html");
+    }else
+    res.sendFile(path+"/index.html");
+});
 
 app.post("/index",function(req,res){
     res.sendFile(path+"/index.html");
-    global_id=null;
+    // global_id=null;
+});
+
+app.post("/logout",function(req,res){
+    console.log("bye")
+    req.session.destroy();
+    res.sendFile(path+"/index.html");
+    // global_id=null;
 });
 
 app.post("/send",async function(req,res){
@@ -99,13 +125,16 @@ app.post("/send",async function(req,res){
         const useremail=await Register.findOne({email:email});
         const verify=await bcrypt.compare(password,useremail.password);
         if(verify){
-            global_id=email;
+            // global_id=email;
+            session=req.session;
+            session.userid=useremail.email;
+            console.log(req.session)
             res.status(201).sendFile(path+"/sucess.html");
         }else{
             res.send("invalid email or password")
         }
     }catch(error){
-        res.status(400).send("invalid email or password");
+        res.status(400).send(error);
     }
 });
 
@@ -154,7 +183,7 @@ app.post("/reset", async function(req,res){// used to reset the password
         if(password===confirmpassword){
         const newpassword=await bcrypt.hash(password,10)
         try{
-        await Register.updateOne({email:global_id},{
+        await Register.updateOne({email:session.userid},{
             $set:{
                 password:newpassword                 //password field gets updated in db
             }
@@ -180,7 +209,7 @@ app.post("/check", async function(req,res){   //this is used to check if credent
         const username=await Register.findOne({email:email});
         const verify=await bcrypt.compare(recoveryCode,username.recoveryCode);
         if(verify){
-            global_id=email;
+            // global_id=email;
             res.status(201).sendFile(path+"/reset.html");
         }else{
             res.send("invalid email or recovery code")
@@ -227,7 +256,7 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
             filename:files[index].originalname,
             contentType:files[index].mimetype,
             imageBased64:src,
-            email:global_id
+            email:session.userid
         });
         let result=new images(finalimg);
         await result.save();
@@ -237,6 +266,6 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
     app.set('view engine', 'hbs') //view engine for handlebars page
 
     app.post('/pictures',async (req,res)=>{  //used when my pictures is clicked
-        const useremail=await images.find({email:global_id});  //finds all the images of logged in user
+        const useremail=await images.find({email:session.userid});  //finds all the images of logged in user
         return res.render(path+"/pictures.hbs",{images:useremail});  //sends details to hbs file
-    })
+    })    
