@@ -160,6 +160,7 @@ app.post("/reset", async function(req,res){// used to reset the password
             }
         });
         }catch(err){
+            res.status(400).send(err);
             console.log("upadating error")
         }
         res.status(201).sendFile(path+"/sucess.html");
@@ -229,10 +230,8 @@ app.post('/upload', upload.array("images",100),async function (req, res, next) {
             email:global_id
         });
         let result=new images(finalimg);
-        return result.save().then(()=>{         //then is used to wait till all pics get uploaded
-            console.log("Uploaded Sucessfully")
-        });
-        })
+        await result.save();
+    })
     })
 
     app.set('view engine', 'hbs') //view engine for handlebars page
