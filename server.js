@@ -118,7 +118,7 @@ app.post("/logout",function(req,res){
     // global_id=null;
 });
 
-app.post("/send",async function(req,res){
+app.post("/send",async function(req,res){//login verification
     try{
         const email=req.body.email;
         const password=req.body.password;
