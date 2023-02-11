@@ -9,12 +9,12 @@
     <link href="./dist/output.css" rel="stylesheet">
     <title>Document</title>
 </head>
-<body class="bg-custom_black text-custom_white">
-    <div class="mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-3xl">
-        <h1 class="text-3xl font-bold m-3 text-custom_white">Pic Uploader</h1>
-        <div class="flex flex-row justify-end w-3/4 m-5">
-            <form action="/contact" method="POST"><button class="text-xl rounded-md mr-10 text-custom_white">Contact</button></form>
-            <form action="/signup" method="POST"><button class="text-xl rounded-md text-custom_white">Register</button></form>
+<body class="bg-custom_black text-custom_white font-sans">
+    <div class="mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-full">
+        <h1 class="text-3xl font-bold m-3 text-custom_white laptop:text-2xl tablet:text-sm">Pic Uploader</h1>
+        <div class="flex flex-row justify-end w-3/4 m-5 laptop:w-[60vw] tablet:w-[40vw] mobile:w-[30vw]">
+            <form action="/contact" method="POST"><button class="text-xl rounded-md mr-10 text-custom_white hover:text-slate-400 laptop:mr-7 tablet:text-sm">Contact</button></form>
+            <form action="/signup" method="POST"><button class="text-xl rounded-md text-custom_white  hover:text-slate-400 tablet:text-sm">Register</button></form>
         </div>
     </div>
     <br>
@@ -24,7 +24,7 @@
             <form action="/send" method="POST" class="flex flex-col items-center justify-center">
                 <input class="py-4 px-16 bg-custom_black border-2 border-custom_border rounded-3xl" type="email" required placeholder="Email" name="email"><br>
                 <input class="py-4 px-16 bg-custom_black border-2 border-custom_border rounded-3xl" type="password" required placeholder="Password" name="password"><br>
-                <button class="bg-custom_black border-2 border-solid border-custom_border px-5 py-3 rounded-3xl text-sm items-center justify-center">Login</button><br>
+                <button class="bg-custom_black border-2 border-solid border-custom_border px-8 py-3 rounded-3xl text-lg items-center justify-center hover:bg-slate-600">Login</button><br>
             </form>
         </div>
         <form action="/forpass" method="POST">
