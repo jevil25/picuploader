@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body class="bg-custom_black text-custom_white">
-    <div class="mx-14 mt-8 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-3xl">
+    <div class="mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-3xl">
         <h1 class="text-3xl font-bold m-3 text-custom_white">Pic Uploader</h1>
         <div class="flex flex-row justify-end w-3/4 m-5">
             <form action="/contact" method="POST"><button class="text-xl rounded-md mr-10 text-custom_white">Contact</button></form>
@@ -18,25 +18,21 @@
         </div>
     </div>
     <br>
-    <div class="flex flex-col justify-center items-center">
-        <h2 class="text-3xl font-bold">Login</h2><br>
+    <div class="flex flex-col justify-center items-center mt-8 mb-4">
+        <h2 class="text-3xl font-bold mb-4">Login</h2><br>
         <div>
             <form action="/send" method="POST" class="flex flex-col items-center justify-center">
-                <input class="py-4 px-10 mb-1 bg-custom_black border-2 border-custom_border rounded-3xl" type="email" required placeholder="  &#xf0e0; Email" class="input1" name="email"><br>
-                <input class="py-4 px-10 mb-1 bg-custom_black border-2 border-custom_border rounded-3xl" type="password" required placeholder="  &#xf023; Password" class="input1" name="password"><br>
+                <input class="py-4 px-16 bg-custom_black border-2 border-custom_border rounded-3xl" type="email" required placeholder="Email" name="email"><br>
+                <input class="py-4 px-16 bg-custom_black border-2 border-custom_border rounded-3xl" type="password" required placeholder="Password" name="password"><br>
                 <button class="bg-custom_black border-2 border-solid border-custom_border px-5 py-3 rounded-3xl text-sm items-center justify-center">Login</button><br>
             </form>
         </div>
         <form action="/forpass" method="POST">
-            <button class="fp btn" name="forgotpassword">Forgot Password?</button><br>
+            <button class="text-sm text-slate-400 mb-1 relative bottom-5" name="forgotpassword">Forgot Password?</button><br>
         </form>
     </div>
-    <footer class="foot">
-        <i class="fa-brands fa-github"></i><a href="https://github.com/jevil25">jevil25</a>
-        <i class="fa-brands fa-instagram"></i><a href="https://www.instagram.com/aaron_naz25/">aaron_naz25</a>
-        <i class="fa-brands fa-linkedin"></i><a href="https://www.linkedin.com/in/aaron-nazareth-6580311b6/">Aaron Nazareth</a>
-        <i class="fa-regular fa-envelope"></i><a href="mailto:jevil257@gmail.com">jevil257@gmail.com</a><br>
-        Designed and Built by <b>Aaron Nazareth</b>
+    <footer class="flex flex-row items-center justify-center mr-3">
+        Designed and Built by<span class="font-bold ml-2">Aaron Nazareth</span>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
