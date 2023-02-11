@@ -21,7 +21,7 @@ mongoose.connect("mongodb+srv://jevil2002:aaron2002@jevil257.lipykl5.mongodb.net
 }).catch((e)=>{
     console.log(e);
 });
-const { response } = require("express");
+
 //db declaration
 const regSchema=new mongoose.Schema({
     firstname:{
@@ -83,9 +83,9 @@ const images=new mongoose.model("pics",imageSchema);
 module.exports={Register,images}; //sends data to database
 
 const app=express();
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 app.use(cookieParser());
-const path=__dirname + '/public/views';
+const path=__dirname+"/public/views";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
