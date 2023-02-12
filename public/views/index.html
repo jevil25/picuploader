@@ -10,14 +10,16 @@
     <title>Document</title>
 </head>
 <body class="bg-custom_black text-custom_white font-sans">
-    <div class="mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-full mobile:mx-5">
-        <h1 class="text-3xl font-bold m-3 text-custom_white laptop:text-2xl tablet:text-xl mobile:relative right-8">Pic Uploader</h1>
-        <div class="flex flex-row justify-end w-3/4 m-5 laptop:w-[60vw] tablet:w-[40vw] mobile:w-[20vw]">
-            <button type="button" class="invisible mobile:visible relative left-40">
+    <div class="nav-main mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-full mobile:mx-5 mobile:mb-24" n>
+        <h1 class="text-3xl font-bold m-3 text-custom_white laptop:text-2xl tablet:text-xl mobile:relative mobile:right-8 mobile:text-[30px]">Pic Uploader</h1>
+        <div class="flex flex-row justify-end w-3/4 m-5 laptop:w-[60vw] tablet:w-[40vw] mobile:w-[20vw] mobile:justify-center">
+            <button type="button" class="invisible mobile:visible mobile:relative mobile:left-[60px] " onclick="toggleMenu();">
                 <i class="fas fa-align-justify"></i>
             </button>
-            <form action="/contact" method="POST"><button class="text-xl rounded-md mr-10 text-custom_white hover:text-slate-400 laptop:mr-7 tablet:text-sm mobile:invisible">Contact</button></form>
-            <form action="/signup" method="POST"><button class="text-xl rounded-md text-custom_white  hover:text-slate-400 tablet:text-sm mobile:invisible">Register</button></form>
+            <div class="visible nav-links flex flex-row mobile:invisible mobile:flex-col mobile:justify-center mobile:items-center mobile:relative mobile:top-[120px] mobile:right-[20vw]">
+                <form action="/contact" method="POST"><button class="contact text-xl rounded-md mr-10 text-custom_white hover:text-slate-400 laptop:mr-7 tablet:text-xl mobile:justify-center mobile:items-center mobile:border-b-2 mobile:border-custom_border mobile:mt-2 mobile:text-2xl ">Contact</button></form>
+                <form action="/signup" method="post"><button class="login text-lg rounded-md text-custom_white  hover:text-slate-400 tablet:text-xl mobile:justify-center mobile:items-center mobile:border-b-2 mobile:border-custom_border mobile:relative mobile:right-4 mobile:mt-2 mobile:text-2xl">Signup</button></form>
+            </div>
         </div>
     </div>
     <br>
@@ -40,4 +42,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
+<script src="public/js/nav.js"></script>
 </html>
