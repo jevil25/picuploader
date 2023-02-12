@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "build:tailwindcss": "tailwindcss build public/css/main.css -o dist/output.css"
+    "build:tailwindcss": "npx tailwindcss -i ./public/css/main.css -o ./dist/output.css --watch"
   },
   "author": "Aaron Jevil Nazareth",
   "license": "ISC",

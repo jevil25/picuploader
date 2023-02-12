@@ -513,12 +513,28 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .relative {
   position: relative;
 }
 
 .bottom-5 {
   bottom: 1.25rem;
+}
+
+.left-28 {
+  left: 7rem;
+}
+
+.left-40 {
+  left: 10rem;
+}
+
+.right-8 {
+  right: 2rem;
 }
 
 .m-10 {
@@ -536,6 +552,11 @@ video {
 .mx-14 {
   margin-left: 3.5rem;
   margin-right: 3.5rem;
+}
+
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .mb-1 {
@@ -648,6 +669,16 @@ video {
   padding-bottom: 1rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
 .font-sans {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -712,12 +743,13 @@ video {
 }
 
 @media (max-width: 768px) {
-  .tablet\:w-\[50vw\] {
-    width: 50vw;
-  }
-
   .tablet\:w-\[40vw\] {
     width: 40vw;
+  }
+
+  .tablet\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   .tablet\:text-base {
@@ -730,14 +762,56 @@ video {
     line-height: 1.75rem;
   }
 
-  .tablet\:text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+  .tablet\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .tablet\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
-@media (max-width: 640px) {
-  .mobile\:w-\[30vw\] {
-    width: 30vw;
+@media (max-width: 500px) {
+  .mobile\:visible {
+    visibility: visible;
+  }
+
+  .mobile\:invisible {
+    visibility: hidden;
+  }
+
+  .mobile\:relative {
+    position: relative;
+  }
+
+  .mobile\:mx-5 {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  .mobile\:w-\[20vw\] {
+    width: 20vw;
+  }
+
+  .mobile\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .mobile\:py-5 {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .mobile\:py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .mobile\:py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
   }
 }

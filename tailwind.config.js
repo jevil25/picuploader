@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: 'jit',
   content: ["./public/views/*.html", "./public/views/*.hbs"],
   theme: {
     extend: {
@@ -17,7 +18,7 @@ module.exports = {
       'tablet': { 'max': '768px' },
       // => @media (min-width: 768px) { ... }
 
-      'mobile': { 'max': '640px'},
+      'mobile': { 'max': '500px'},
       // => @media (min-width: 640px) { ... }
 
       'xl': { 'max': '1280px' },

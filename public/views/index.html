@@ -10,11 +10,14 @@
     <title>Document</title>
 </head>
 <body class="bg-custom_black text-custom_white font-sans">
-    <div class="mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-full">
-        <h1 class="text-3xl font-bold m-3 text-custom_white laptop:text-2xl tablet:text-sm">Pic Uploader</h1>
-        <div class="flex flex-row justify-end w-3/4 m-5 laptop:w-[60vw] tablet:w-[40vw] mobile:w-[30vw]">
-            <form action="/contact" method="POST"><button class="text-xl rounded-md mr-10 text-custom_white hover:text-slate-400 laptop:mr-7 tablet:text-sm">Contact</button></form>
-            <form action="/signup" method="POST"><button class="text-xl rounded-md text-custom_white  hover:text-slate-400 tablet:text-sm">Register</button></form>
+    <div class="mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-full mobile:mx-5">
+        <h1 class="text-3xl font-bold m-3 text-custom_white laptop:text-2xl tablet:text-xl mobile:relative right-8">Pic Uploader</h1>
+        <div class="flex flex-row justify-end w-3/4 m-5 laptop:w-[60vw] tablet:w-[40vw] mobile:w-[20vw]">
+            <button type="button" class="invisible mobile:visible relative left-40">
+                <i class="fas fa-align-justify"></i>
+            </button>
+            <form action="/contact" method="POST"><button class="text-xl rounded-md mr-10 text-custom_white hover:text-slate-400 laptop:mr-7 tablet:text-sm mobile:invisible">Contact</button></form>
+            <form action="/signup" method="POST"><button class="text-xl rounded-md text-custom_white  hover:text-slate-400 tablet:text-sm mobile:invisible">Register</button></form>
         </div>
     </div>
     <br>

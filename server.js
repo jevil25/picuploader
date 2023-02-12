@@ -123,7 +123,9 @@ app.post("/send",async function(req,res){//login verification
         const email=req.body.email;
         const password=req.body.password;
         const useremail=await Register.findOne({email:email});
+        // console.log(useremail);
         const verify=await bcrypt.compare(password,useremail.password);
+        // console.log(verify);
         if(verify){
             // global_id=email;
             session=req.session;
@@ -134,6 +136,7 @@ app.post("/send",async function(req,res){//login verification
             res.send("invalid email or password")
         }
     }catch(error){
+        console.log(error)
         res.status(400).send(error);
     }
 });
