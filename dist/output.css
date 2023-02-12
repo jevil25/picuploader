@@ -517,6 +517,10 @@ video {
   width: 100%;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -573,6 +577,78 @@ video {
   right: 4rem;
 }
 
+.left-20 {
+  left: 5rem;
+}
+
+.left-24 {
+  left: 6rem;
+}
+
+.left-16 {
+  left: 4rem;
+}
+
+.left-\[70px\] {
+  left: 70px;
+}
+
+.left-\[65px\] {
+  left: 65px;
+}
+
+.left-\[60px\] {
+  left: 60px;
+}
+
+.top-20 {
+  top: 5rem;
+}
+
+.right-32 {
+  right: 8rem;
+}
+
+.right-\[30vw\] {
+  right: 30vw;
+}
+
+.right-\[20vw\] {
+  right: 20vw;
+}
+
+.right-\[15vw\] {
+  right: 15vw;
+}
+
+.right-\[18vw\] {
+  right: 18vw;
+}
+
+.right-\[16vw\] {
+  right: 16vw;
+}
+
+.right-4 {
+  right: 1rem;
+}
+
+.top-28 {
+  top: 7rem;
+}
+
+.top-\[110px\] {
+  top: 110px;
+}
+
+.top-\[105px\] {
+  top: 105px;
+}
+
+.top-\[100px\] {
+  top: 100px;
+}
+
 .m-10 {
   margin: 2.5rem;
 }
@@ -618,6 +694,11 @@ video {
 .my-5 {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .mb-1 {
@@ -674,6 +755,10 @@ video {
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-24 {
+  margin-bottom: 6rem;
 }
 
 .flex {
@@ -754,6 +839,10 @@ video {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
 }
 
 .border-solid {
@@ -935,6 +1024,10 @@ video {
     margin-bottom: 0.75rem;
   }
 
+  .mobile\:flex {
+    display: flex;
+  }
+
   .mobile\:w-\[20vw\] {
     width: 20vw;
   }
@@ -945,6 +1038,10 @@ video {
 
   .mobile\:flex-col {
     flex-direction: column;
+  }
+
+  .mobile\:justify-center {
+    justify-content: center;
   }
 
   .mobile\:py-10 {

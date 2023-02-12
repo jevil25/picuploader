@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/99352e98c2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="dist/output.css">
+    <script src="public/js/nav.js"></script>
     <title>Document</title>
 </head>
 <body class="bg-custom_black text-custom_white font-sans">
-    <div class="mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-full mobile:mx-5">
+    <div class="nav-main mx-14 mt-6 flex flex-row justify-center items-center border-2 border-solid border-custom_border rounded-full mobile:mx-5" n>
         <h1 class="text-3xl font-bold m-3 text-custom_white laptop:text-2xl tablet:text-xl mobile:relative right-8">Pic Uploader</h1>
-        <div class="flex flex-row justify-end w-3/4 m-5 laptop:w-[60vw] tablet:w-[40vw] mobile:w-[20vw]">
-            <button type="button" class="invisible mobile:visible relative left-40">
+        <div class="flex flex-row justify-end w-3/4 m-5 laptop:w-[60vw] tablet:w-[40vw] mobile:w-[20vw] justify-center">
+            <button type="button" class="invisible mobile:visible relative left-[60px] " onclick="toggleMenu();">
                 <i class="fas fa-align-justify"></i>
             </button>
-            <form action="/contact" method="POST"><button class="text-xl rounded-md mr-10 text-custom_white hover:text-slate-400 laptop:mr-7 tablet:text-sm mobile:invisible">Contact</button></form>
-            <form action="/" method="get"><button class="text-xl rounded-md text-custom_white  hover:text-slate-400 tablet:text-sm mobile:invisible">Login</button></form>
+            <div class="nav-links flex flex-row mobile:invisible hidden mobile:flex-col justify-center items-center relative top-[100px] right-[16vw]">
+                <form action="/contact" method="POST"><button class="contact text-xl rounded-md mr-10 text-custom_white hover:text-slate-400 laptop:mr-7 tablet:text-xl mobile:justify-center items-center border-b-2 border-custom_border">Contact</button></form>
+                <form action="/" method="get"><button class="login text-lg rounded-md text-custom_white  hover:text-slate-400 tablet:text-xl mobile:justify-center items-center border-b-2 border-custom_border relative right-4 ">Login</button></form>
+            </div>
         </div>
     </div>
     <h1 class="mt-8 text-xl mb-4 flex justify-center border-2 border-custom_border rounded-full font-bold px-5 mx-[38vw] py-2">Signup</h1>
